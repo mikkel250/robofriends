@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox.js';
-//import { robots } from './robots.js';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll'
 import './App.css';
-// const state = {
-//   robots: robots,
-//   searchfield: ''
-// }
+
 
 class App extends Component {
   constructor() {
@@ -41,9 +38,11 @@ class App extends Component {
     } else {
       return (
         <div className="tc">
-          <h1 className='f1'>RoboFriends</h1>
+          <h1 className="f1">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
-          <CardList robots={filteredRobots} />
+          <Scroll>
+            <CardList robots={filteredRobots} />
+          </Scroll>
         </div>
       );
     }
